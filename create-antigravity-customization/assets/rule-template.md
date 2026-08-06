@@ -10,3 +10,10 @@
 ## 適用範囲
 
 <このルールがどのスコープ（Global / Workspace）で適用されるかを記述する。>
+
+<!-- 
+注意: 
+Ruleの起動方式（Manual, Always On, Model Decision, Glob等）は
+このMarkdownファイル内には記載せず、
+AntigravityのCustomizations画面から設定してください。
+-->

@@ -74,15 +74,45 @@ SkillとCustom Subagentは異なる成果物です。Skillは`skills/`ディレ�
 
 | スコープ | パス |
 |----------|------|
-| Workspace | `<workspace-root>/.agents/workflows/<name>.md` |
+| 未確認 | 未確認（Customizations画面から作成してください） |
 
-## 新しいSkillを追加する
+### MCP設定
 
-1. `~/.gemini/config/skills/`（Global）または`<workspace-root>/.agents/skills/`（Workspace）にディレクトリを作成する。
-2. ディレクトリ内に`SKILL.md`を作成する（YAML frontmatterに`name`と`description`を記載）。
-3. 必要に応じて`references/`、`scripts/`、`assets/`を追加する。
+| スコープ | パス |
+|----------|------|
+| Global | `~/.gemini/config/mcp_config.json` |
+| Workspace | `<workspace-root>/.agents/mcp_config.json` |
 
-`create-antigravity-customization`スキルを使えば、対話形式でカスタマイズを作成できます。
+## 導入方法
+
+このリポジトリの構成は、保存用の一元管理用ディレクトリです。
+Antigravityが実際にSkillとして読み込む公式の配置先へ、リポジトリ内のディレクトリをコピーする必要があります。
+（※リポジトリを任意の場所へcloneしただけでは自動検出されません。また、シンボリックリンクを使用するとAntigravityから正常に読み込めない場合があるため注意してください。）
+
+### Global Skillとして利用する方法
+
+すべてのワークスペースで利用したい場合は、以下の公式配置先へコピーします。
+
+```bash
+mkdir -p ~/.gemini/config/skills/
+cp -r /path/to/cloned/repo/create-antigravity-customization ~/.gemini/config/skills/
+```
+
+### Workspace Skillとして利用する方法
+
+特定のワークスペースでのみ利用したい場合は、対象プロジェクトの以下の場所へコピーします。
+
+```bash
+mkdir -p .agents/skills/
+cp -r /path/to/cloned/repo/create-antigravity-customization .agents/skills/
+```
+
+## 新しいカスタマイズを追加する
+
+`create-antigravity-customization`スキルを使えば、対話形式でカスタマイズ（Skill、Custom Subagent、Rule、Workflow、MCP、Script）を作成できます。利用者は成果物種別を選ばなくてよい設計になっています。目的を伝えるだけでAgentが自動で判定します。
+
+また、本Skillは安全性のため、`commit`、`push`、`deploy`といった不可逆・外部影響のある操作を自動実行しないよう制限されています。
+
 
 ## 旧名称からの移行
 

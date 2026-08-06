@@ -2,8 +2,9 @@
 name: <subagent-name>
 description: <親Agentが委譲判断に使う説明。このSubagentが何を専門とし、どのような依頼で呼び出されるべきかを記述する>
 subagent: true
+mainAgent: false
 tools:
-  - <実環境で確認した正確なツール名のみ記載する。不明な場合はこのフィールドを省略する>
+  - <実環境で確認した正確なツール名のみ記載する。不明な場合はこのフィールドを省略する。例: invoke_subagent>
 ---
 
 # System Prompt
