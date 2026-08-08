@@ -1,7 +1,8 @@
 # Antigravity Global Skills
 
-Antigravity IDEで使用するカスタマイズ機能のコレクションです。
-ここに配置されたSkillは、すべてのワークスペースで自動的に検出・利用可能になります。
+このリポジトリは、Antigravity IDEで使用するカスタマイズ機能（主にGlobal Skill）の保存・管理用リポジトリです。
+Google Antigravityから利用するには、公式仕様で定められたGlobal Skill配置先へ配置（コピー）する必要があります。
+（リポジトリをcloneしただけでは自動検出されません。詳細は「導入方法」を参照してください。）
 
 ## 収録スキル
 
@@ -67,8 +68,8 @@ SkillとCustom Subagentは異なる成果物です。Skillは`skills/`ディレ�
 
 | スコープ | パス |
 |----------|------|
-| Global | `~/.gemini/config/AGENTS.md` |
-| Workspace | `<workspace-root>/.agents/AGENTS.md` |
+| Global | `~/.gemini/GEMINI.md` |
+| Workspace | `<workspace-root>/.agents/rules/` |
 
 ### Workflow
 

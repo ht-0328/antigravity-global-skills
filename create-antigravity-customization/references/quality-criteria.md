@@ -8,12 +8,11 @@
 
 | ID | 観点 | 判定基準 | 根拠種別 | 適用条件 | Pass条件 | 失敗時の修正 |
 |----|------|----------|----------|----------|----------|-------------|
-| P1 | 配置場所 | Antigravityで認識可能なパスに配置されているか | 公式仕様 | 全成果物 | Skill: `skills/<name>/SKILL.md`、Subagent: `agents/<name>.md`、Rule: `AGENTS.md`、Workflow: `workflows/<name>.md` | 正しいパスへ移動する |
-| P2 | frontmatter | 最新の公式仕様に合ったYAML frontmatterか | 公式仕様 | Skill, Subagent, Workflow | 必須フィールドが存在し、値が有効 | 不足フィールドを追加する |
-| P3 | 必須フィールド | `name`と`description`が存在するか | 公式仕様 / Agent Skills標準 | Skill, Subagent | 両方が存在し空でない | フィールドを追加する |
-| P4 | 推測禁止 | ツール名、モデル名、実行ポリシーを推測していないか | このリポジトリの設計方針 | Subagent | 実環境で確認した名称のみ使用 | 未確認の値を削除するか`未確認`と明記する |
-| P5 | 役割混同 | Skill、Subagent、Rule、Workflowの役割を混同していないか | 公式仕様 | 全成果物 | 各成果物の製品上の役割に合致している | `references/artifact-selection.md`に基づき種別を再判定する |
-| P6 | JSON構文 | MCP等のJSONファイルが有効な構文か | 公式仕様 | MCP設定等 | JSONとして正しく解析でき、コメントを含まない | JSON構文エラーを修正する |
+| P1 | 配置場所 | Antigravityで認識可能なパスに配置されているか | 公式仕様 | 全成果物 | `authoring-formats.md`に記載された現在の製品仕様と一致するパスに配置されている | 正しいパスへ移動する |
+| P2 | frontmatter | 最新の公式仕様に合ったYAML frontmatterか | 公式仕様 | Skill, Subagent, Workflow | `authoring-formats.md`で必須と定義されたフィールドが存在し、値が有効 | 不足フィールドを追加する |
+| P3 | 推測禁止 | ツール名、モデル名、実行ポリシーを推測していないか | このリポジトリの設計方針 | Subagent | 実環境で確認した名称のみ使用 | 未確認の値を削除するか`未確認`と明記する |
+| P4 | 役割混同 | Skill、Subagent、Rule、Workflowの役割を混同していないか | 公式仕様 | 全成果物 | 各成果物の製品上の役割に合致している | `references/artifact-selection.md`に基づき種別を再判定する |
+| P5 | JSON構文 | MCP等のJSONファイルが有効な構文か | 公式仕様 | MCP設定等 | JSONとして正しく解析でき、コメントを含まない | JSON構文エラーを修正する |
 
 ## Skillの責務
 

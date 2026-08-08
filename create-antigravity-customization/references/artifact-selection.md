@@ -48,8 +48,8 @@ MCP設定と補助スクリプトは、上記の成果物と組み合わせて�
 ### Rule
 
 - **製品上の役割**: Agentの振る舞いを常時または条件付きで制御する制約、スタイル、プロジェクト固有のルール。タスク手順ではなく行動規範。
-- **読み込み方法**: セッション開始時に自動読み込み。
-- **コンテキスト**: 常にAgentのコンテキストに存在する。
+- **読み込み方法**: `authoring-formats.md` を参照（Manual, Always On, Model Decision, Glob のいずれか）。
+- **コンテキスト**: 条件に応じてAgentのコンテキストに存在する。
 - **配置場所**: `authoring-formats.md`を参照。
 - **適する用途**: コーディングスタイルの強制、コミット前テストの必須化、使用言語の指定、禁止操作の定義
 - **適さない用途**: 特定タスクの詳細手順、複雑な分岐ロジック
@@ -95,9 +95,9 @@ MCP設定と補助スクリプトは、上記の成果物と組み合わせて�
 |------|----------|
 | Skillの配置場所・frontmatter | Antigravity公式仕様 |
 | Custom Subagentの配置場所・frontmatter | Antigravity公式仕様 |
-| Ruleの配置場所（AGENTS.md） | Antigravity公式仕様 / Agent Skills標準 |
+| Ruleの配置場所・読み込み方法 | Antigravity公式仕様 |
 | Workflowの配置場所・形式 | Antigravity公式仕様 |
-| MCP設定 | Antigravity公式仕様 / MCP 2026-07-28仕様 |
+| MCP設定 | Antigravity公式仕様 / MCP仕様 |
 | Progressive disclosure（3段階読み込み） | Agent Skills標準 |
 | 各成果物の適する/適さない用途 | このリポジトリの設計方針 |
 | 判定の補助質問 | このリポジトリの設計方針 |

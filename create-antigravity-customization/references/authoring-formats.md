@@ -3,7 +3,7 @@
 Antigravity公式仕様、Agent Skills公式標準、MCP公式仕様などに基づく各成果物の定義形式と配置場所。
 このファイルがリポジトリ内の唯一の正本です。
 
-確認日: 2026-08-07
+確認日: 2026-08-08
 確認元: antigravity.google、Agent Skills標準（agentskills.io）、Antigravity CLI公式ブログ
 
 ## 共通する注意事項
@@ -62,20 +62,19 @@ Antigravity公式仕様、Agent Skills公式標準、MCP公式仕様などに基
 
 | 項目 | 内容 | 根拠 |
 |------|------|------|
-| 公式名称 | Rule / Context File | Antigravity公式仕様 |
-| Globalの配置場所 | `~/.gemini/config/AGENTS.md` | Antigravity公式仕様 |
-| Workspaceの配置場所 | `<workspace-root>/.agents/AGENTS.md` | Antigravity公式仕様 |
-| 必須ファイル | `AGENTS.md` | Antigravity公式仕様 |
+| 公式名称 | Rule | Antigravity公式仕様 |
+| Globalの配置場所 | `~/.gemini/GEMINI.md` | Antigravity公式仕様 |
+| Workspaceの配置場所 | `<workspace-root>/.agents/rules/` （※後方互換で `.agent/rules/` もサポート） | Antigravity公式仕様 |
+| 必須ファイル | Markdownファイル (`.md`) | Antigravity公式仕様 |
 | 必須frontmatter | なし（プレーンMarkdown） | Antigravity公式仕様 |
 | 任意frontmatter | 未確認 | 未確認 |
 | 各フィールドのデフォルト値 | なし | Antigravity公式仕様 |
-| 呼び出し方法 | セッション開始時に自動読み込み | Antigravity公式仕様 |
-| 文字数などの制限 | 制限なし | Antigravity公式仕様 |
+| 呼び出し方法 | Manual（@メンション）, Always On, Model Decision, Glob のいずれか | Antigravity公式仕様 |
+| 文字数などの制限 | 各12,000文字以内 | Antigravity公式仕様 |
 
-### 未確認事項
-- Ruleの起動方式（Manual, Always On, Model Decision, Glob）をMarkdownファイル内部のメタデータ形式でどのように保存するかは公式資料から確認できないため未確認。
-- このため、ファイル内には本文のみを記載し、設定はAntigravityのCustomizations画面から行います。
-- `~/.gemini/GEMINI.md` や `<workspace-root>/.agents/rules/` は公式資料で確認できないため未確認。
+### 特記事項
+- ファイル内で `@filename` を用いて他ファイルを参照可能です。
+- 旧仕様の `AGENTS.md` 前提の記述は現在の公式仕様に置き換わりました。
 
 ---
 
@@ -85,20 +84,19 @@ Antigravity公式仕様、Agent Skills公式標準、MCP公式仕様などに基
 
 | 項目 | 内容 | 根拠 |
 |------|------|------|
-| 公式名称 | Workflow / Slash Command | Antigravity公式仕様 |
-| Globalの配置場所 | 未確認 | 未確認 |
-| Workspaceの配置場所 | 未確認 | 未確認 |
-| 必須ファイル | 未確認 | 未確認 |
+| 公式名称 | Workflow | Antigravity公式仕様 |
+| Globalの配置場所 | 公式資料では物理配置先を確認できないため、パスを断定しない。 | 未確認 |
+| Workspaceの配置場所 | 公式資料では物理配置先を確認できないため、パスを断定しない。 | 未確認 |
+| 必須ファイル | Markdownファイル (`.md`) | Antigravity公式仕様 |
 | 必須frontmatter | 未確認 | 未確認 |
 | 任意frontmatter | 未確認 | 未確認 |
 | 各フィールドのデフォルト値 | 未確認 | 未確認 |
-| 呼び出し方法 | Customizations画面から作成し、スラッシュコマンド（例: `/filename`）で実行 | Antigravity公式仕様 |
-| 文字数などの制限 | 12,000文字 | Antigravity公式仕様 |
+| 呼び出し方法 | スラッシュコマンド（例: `/workflow-name`）で実行 | Antigravity公式仕様 |
+| 文字数などの制限 | 各12,000文字以内 | Antigravity公式仕様 |
 
-### 未確認事項
-- `.agents/workflows` などの物理パスや、YAML frontmatterの正式な形式は公式資料から確認できないため未確認。
-- GlobalやWorkspaceへのファイルの直接作成や、Workflowから別Workflowの呼び出し可否も未確認。
-- Workflowは必ずAntigravityのCustomizations画面から作成するよう案内します。
+### 特記事項
+- Workflowは必ずAntigravityのCustomizations画面から作成するか、Agentに生成を依頼します。
+- Workflow内から別のWorkflowをスラッシュコマンドで呼び出すことが可能です。
 
 ---
 
@@ -109,8 +107,8 @@ Antigravity公式仕様、Agent Skills公式標準、MCP公式仕様などに基
 | 項目 | 内容 | 根拠 |
 |------|------|------|
 | 公式名称 | MCP Server Configuration | MCP公式仕様 |
-| Globalの配置場所 | `~/.gemini/config/mcp_config.json` | リポジトリ独自方針 |
-| Workspaceの配置場所 | `<workspace-root>/.agents/mcp_config.json` | リポジトリ独自方針 |
+| Globalの配置場所 | `~/.gemini/config/mcp_config.json` | Antigravity公式仕様 |
+| Workspaceの配置場所 | `<workspace-root>/.agents/mcp_config.json` | Antigravity公式仕様 |
 | 必須ファイル | JSONファイル | MCP公式仕様 |
 | 必須frontmatter | 該当なし（JSON） | 該当なし |
 | 任意frontmatter | 該当なし（JSON） | 該当なし |
@@ -118,6 +116,8 @@ Antigravity公式仕様、Agent Skills公式標準、MCP公式仕様などに基
 | 呼び出し方法 | Agentが自動的に外部能力として利用 | Antigravity公式仕様 |
 | 文字数などの制限 | 制限なし | MCP公式仕様 |
 
-### 未確認事項
-- `mcp_config.json`というファイル名や物理配置パスは、現在の公式仕様で確実な記載がないため、リポジトリ独自方針として採用しています（旧来の`.gemini/settings.json`等は非推奨）。
-- リモートMCPのURLフィールド名などは公式確認できないため、ローカルコマンド型（`command`, `args`）のみを標準とします。
+### 設定構造とフィールド
+- ファイルは単一の `mcpServers` オブジェクトを持ちます。
+- **トランスポート層（必須）**: stdio用 `command`（パス指定）、またはremote用 `serverUrl`。
+- **オプション層**: `args`, `env`, `cwd`, `headers`, `authProviderType`（`google_credentials` 等）, `oauth`, `disabled`, `disabledTools`。
+- レガシーな `url` や `httpUrl` は現在サポートされていません。
